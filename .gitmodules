@@ -1,0 +1,3 @@
+[submodule "lib/colorPicker"]
+	path = lib/colorPicker
+	url = https://github.com/PitPik/tinyColorPicker.git

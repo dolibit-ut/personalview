@@ -88,7 +88,7 @@ class modpersonnalview extends DolibarrModules
 		//							'workflow' => array('WORKFLOW_MODULE1_YOURACTIONTYPE_MODULE2'=>array('enabled'=>'! empty($conf->module1->enabled) && ! empty($conf->module2->enabled)', 'picto'=>'yourpicto@personnalview')) // Set here all workflow context managed by module
 		//                        );
 		$this->module_parts = array(
-			'js'=>array('/personnalview/js/personnalview.js.php')
+			'js'=>array('/personnalview/js/personnalview.js.php','/personnalview/lib/colorPicker/jqColorPicker.min.js')
 		);
 
 		// Data directories to create when module is enabled.
