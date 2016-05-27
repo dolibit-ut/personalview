@@ -1,10 +1,10 @@
 <?php
 
-class TPersonnalView extends TObjetStd {
+class TPersonalView extends TObjetStd {
 	
 	function __construct() {
 		
-		$this->set_table(MAIN_DB_PREFIX . 'personnal_view');
+		$this->set_table(MAIN_DB_PREFIX . 'personal_view');
 		$this->add_champs('TField',array('type'=>'array'));
 		$this->add_champs('element,action',array('type'=>'string','length'=>30, 'index'=>true));
 		

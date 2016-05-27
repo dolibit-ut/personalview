@@ -7,7 +7,7 @@ $(document).ready(function() {
 	
 });
 
-var personnalView = {
+var personalview = {
 	
 	hide : function(iTable, iRow) {
 		$('table[pview-table='+iTable+'] tr[pview-row='+iRow+']').hide();

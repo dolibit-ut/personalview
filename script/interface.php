@@ -2,7 +2,7 @@
 
 	require '../config.php';
 	
-	dol_include_once('/personnalview/class/ps.class.php');
+	dol_include_once('/personalview/class/ps.class.php');
 
 		$put = GETPOST('put');
 		
@@ -13,7 +13,7 @@ function _put($put) {
 	
 	switch ($put) {
 		case 'view':
-			$ps =new TPersonnalView;
+			$ps =new TPersonalView;
 			$ps->loadByElementAction($PDOdb, GETPOST('element'),  GETPOST('action'));
 			
 			$ps->element = GETPOST('element');

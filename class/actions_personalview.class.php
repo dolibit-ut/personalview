@@ -17,16 +17,16 @@
  */
 
 /**
- * \file    class/actions_personnalview.class.php
- * \ingroup personnalview
+ * \file    class/actions_personalview.class.php
+ * \ingroup personalview
  * \brief   This file is an example hook overload class file
  *          Put some comments here
  */
 
 /**
- * Class Actionspersonnalview
+ * Class Actionspersonalview
  */
-class Actionspersonnalview
+class Actionspersonalview
 {
 	/**
 	 * @var array Hook results. Propagated to $hookmanager->resArray for later reuse
@@ -64,37 +64,37 @@ class Actionspersonnalview
 		
 		if (in_array('globalcard', explode(':', $parameters['context'])))
 		{
-			//'js'=>array('/personnalview/js/personnalview.js.php','/personnalview/lib/colorPicker/jqColorPicker.min.js')
+			//'js'=>array('/personalview/js/personalview.js.php','/personalview/lib/colorPicker/jqColorPicker.min.js')
 			
 			global $langs;
 			
-			$langs->load('personnalview@personnalview');
+			$langs->load('personalview@personalview');
 			
-			echo '<div class="inline-block" id="personnalviewbuttons" style="display:none;">';
-			echo '<a rel="edit" href="javascript:personnalView.edit();">'.img_picto($langs->trans('EditView'), 'personnalview@personnalview',' style="width:16px;" ').'</a>';
-			echo '<a rel="running" href="javascript:personnalView.save();">'.img_picto($langs->trans('EditViewRunning'), 'personnalview-edit@personnalview',' style="width:16px;" ').'</a>';
-			echo '<a rel="exist" href="javascript:personnalView.edit();">'.img_picto($langs->trans('EditViewSaved'), 'personnalview-saved@personnalview',' style="width:16px;" ').'</a>';
+			echo '<div class="inline-block" id="personalviewbuttons" style="display:none;">';
+			echo '<a rel="edit" href="javascript:personalview.edit();">'.img_picto($langs->trans('EditView'), 'personalview@personalview',' style="width:16px;" ').'</a>';
+			echo '<a rel="running" href="javascript:personalview.save();">'.img_picto($langs->trans('EditViewRunning'), 'personalview-edit@personalview',' style="width:16px;" ').'</a>';
+			echo '<a rel="exist" href="javascript:personalview.edit();">'.img_picto($langs->trans('EditViewSaved'), 'personalview-saved@personalview',' style="width:16px;" ').'</a>';
 			echo '</div>';
 			
 			?>
-			<script src="<?php echo dol_buildpath('/personnalview/lib/colorPicker/jqColorPicker.min.js',1); ?>" type="text/javascript"></script>
+			<script src="<?php echo dol_buildpath('/personalview/lib/colorPicker/jqColorPicker.min.js',1); ?>" type="text/javascript"></script>
 			<script type="text/javascript">
 				
 				$(document).ready(function() {
-					$('#personnalviewbuttons').prependTo('div.login_block div.login_block_other').show();
+					$('#personalviewbuttons').prependTo('div.login_block div.login_block_other').show();
 						
 					<?php
 					
 					define('INC_FROM_DOLIBARR',1);
-					dol_include_once('/personnalview/config.php');
-					dol_include_once('/personnalview/class/ps.class.php');
+					dol_include_once('/personalview/config.php');
+					dol_include_once('/personalview/class/ps.class.php');
 					
 					$PDOdb=new TPDOdb;
-					$ps=new TPersonnalView;
+					$ps=new TPersonalView;
 					if($ps->loadByElementAction($PDOdb, $object->element, $action) && !empty($ps->TField)) {
 						
 						?>
-						$('#personnalviewbuttons [rel=running],#personnalviewbuttons [rel=edit]').hide();
+						$('#personalviewbuttons [rel=running],#personalviewbuttons [rel=edit]').hide();
 					
 						$('table').not('table table').each(function(it, table) {
 								$table = $(table);
@@ -122,8 +122,8 @@ class Actionspersonnalview
 					}
 					else{
 						?>
-						$('#personnalviewbuttons').prependTo('div.login_block div.login_block_other').show();
-						$('#personnalviewbuttons [rel=running],#personnalviewbuttons [rel=exist]').hide();
+						$('#personalviewbuttons').prependTo('div.login_block div.login_block_other').show();
+						$('#personalviewbuttons [rel=running],#personalviewbuttons [rel=exist]').hide();
 					
 						<?php	
 					}
@@ -132,7 +132,7 @@ class Actionspersonnalview
 					
 				});
 				
-				var personnalView = {
+				var personalview = {
 					
 					hide : function(iTable, iRow) {
 						$tr = $('table[pview-table='+iTable+'] tr[pview-row='+iRow+']')
@@ -159,8 +159,8 @@ class Actionspersonnalview
 					}
 					,save : function() {
 						$('table[pview-table] tr').unbind('mouseenter').unbind('mouseleave');
-						$('#personnalviewbuttons [rel=running],#personnalviewbuttons [rel=edit]').hide();
-						$('#personnalviewbuttons [rel=exist]').show();
+						$('#personalviewbuttons [rel=running],#personalviewbuttons [rel=edit]').hide();
+						$('#personalviewbuttons [rel=exist]').show();
 						$('.PSCanEdit').remove();
 						
 						$('.PSNotReallyHide').addClass('PSHidden').removeClass('PSNotReallyHide');
@@ -183,7 +183,7 @@ class Actionspersonnalview
 						});
 						
 						$.ajax({
-							url:"<?php echo dol_buildpath("/personnalview/script/interface.php",1) ?>"
+							url:"<?php echo dol_buildpath("/personalview/script/interface.php",1) ?>"
 							,data: {
 								put:'view'
 								,element:"<?php echo $object->element ?>"
@@ -197,13 +197,13 @@ class Actionspersonnalview
 					,edit : function() {
 						$('.PSHidden').addClass('PSNotReallyHide').removeClass('PSHidden');
 						
-						$('#personnalviewbuttons [rel=exist],#personnalviewbuttons [rel=edit]').hide();
-						$('#personnalviewbuttons [rel=running]').show();
+						$('#personalviewbuttons [rel=exist],#personalviewbuttons [rel=edit]').hide();
+						$('#personalviewbuttons [rel=running]').show();
 						
 						$('table').not('table table').each(function(it, table) {
 						var $table = $(table);
 						
-						$table.before('<div class="PSCanEdit"><?php echo $langs->trans('YouCanEditThisTable').' <a href="javascript:personnalView.save();">'.img_picto($langs->trans('SaveView'),'tick').'</a>'; ?></div>');
+						$table.before('<div class="PSCanEdit"><?php echo $langs->trans('YouCanEditThisTable').' <a href="javascript:personalview.save();">'.img_picto($langs->trans('SaveView'),'tick').'</a>'; ?></div>');
 						
 						if($table.hasClass('nobordernopadding')) {
 							$('table').css({
@@ -219,11 +219,11 @@ class Actionspersonnalview
 							$item.attr('pview-row', i);
 						
 							var $actions = $('<div class="PSActions" rel="personnal-view-data"></div>');
-							$actions.append('<a rel="hide" href="javascript:personnalView.hide('+it+','+i+')"><?php echo img_picto($langs->trans('HideOrNot'), 'personnalview@personnalview'); ?></a>');
-							$actions.append('<a href="javascript:personnalView.highLight('+it+','+i+')"><?php echo img_picto($langs->trans('HighLight'), 'bold@personnalview'); ?></a>');
+							$actions.append('<a rel="hide" href="javascript:personalview.hide('+it+','+i+')"><?php echo img_picto($langs->trans('HideOrNot'), 'personalview@personalview'); ?></a>');
+							$actions.append('<a href="javascript:personalview.highLight('+it+','+i+')"><?php echo img_picto($langs->trans('HighLight'), 'bold@personalview'); ?></a>');
 							
 							//$actions.append('<input type="text" pview-table="'+it+'" pview-row="'+i+'" id="color_'+it+'_'+i+'" value="" class="color" size="2" />');
-							$actions.append('<a href="javascript:;" pview-table="'+it+'" pview-row="'+i+'" id="color_'+it+'_'+i+'"><?php echo img_picto($langs->trans('PickColor'), 'color@personnalview'); ?></a>');
+							$actions.append('<a href="javascript:;" pview-table="'+it+'" pview-row="'+i+'" id="color_'+it+'_'+i+'"><?php echo img_picto($langs->trans('PickColor'), 'color@personalview'); ?></a>');
 							$('#color_'+it+'_'+i).colorPicker({
 								renderCallback:function($elm, toggled) {
 									

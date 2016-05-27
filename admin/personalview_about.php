@@ -18,7 +18,7 @@
 
 /**
  * 	\file		admin/about.php
- * 	\ingroup	personnalview
+ * 	\ingroup	personalview
  * 	\brief		This file is an example about page
  * 				Put some comments here
  */
@@ -30,10 +30,10 @@ if (! $res) {
 
 // Libraries
 require_once DOL_DOCUMENT_ROOT . "/core/lib/admin.lib.php";
-require_once '../lib/personnalview.lib.php';
+require_once '../lib/personalview.lib.php';
 
 // Translations
-$langs->load("personnalview@personnalview");
+$langs->load("personalview@personalview");
 
 // Access control
 if (! $user->admin) {
@@ -43,7 +43,7 @@ if (! $user->admin) {
 /*
  * View
  */
-$page_name = "personnalviewAbout";
+$page_name = "personalviewAbout";
 llxHeader('', $langs->trans($page_name));
 
 // Subheader
@@ -52,13 +52,13 @@ $linkback = '<a href="' . DOL_URL_ROOT . '/admin/modules.php">'
 print_fiche_titre($langs->trans($page_name), $linkback);
 
 // Configuration header
-$head = personnalviewAdminPrepareHead();
+$head = personalviewAdminPrepareHead();
 dol_fiche_head(
     $head,
     'about',
     $langs->trans("Module104850Name"),
     0,
-    'personnalview@personnalview'
+    'personalview@personalview'
 );
 
 // About page goes here

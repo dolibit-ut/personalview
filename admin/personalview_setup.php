@@ -17,8 +17,8 @@
  */
 
 /**
- * 	\file		admin/personnalview.php
- * 	\ingroup	personnalview
+ * 	\file		admin/personalview.php
+ * 	\ingroup	personalview
  * 	\brief		This file is an example module setup page
  * 				Put some comments here
  */
@@ -30,10 +30,10 @@ if (! $res) {
 
 // Libraries
 require_once DOL_DOCUMENT_ROOT . "/core/lib/admin.lib.php";
-require_once '../lib/personnalview.lib.php';
+require_once '../lib/personalview.lib.php';
 
 // Translations
-$langs->load("personnalview@personnalview");
+$langs->load("personalview@personalview");
 
 // Access control
 if (! $user->admin) {
@@ -77,7 +77,7 @@ if (preg_match('/del_(.*)/',$action,$reg))
 /*
  * View
  */
-$page_name = "personnalviewSetup";
+$page_name = "personalviewSetup";
 llxHeader('', $langs->trans($page_name));
 
 // Subheader
@@ -86,13 +86,13 @@ $linkback = '<a href="' . DOL_URL_ROOT . '/admin/modules.php">'
 print_fiche_titre($langs->trans($page_name), $linkback);
 
 // Configuration header
-$head = personnalviewAdminPrepareHead();
+$head = personalviewAdminPrepareHead();
 dol_fiche_head(
     $head,
     'settings',
     $langs->trans("Module104850Name"),
     0,
-    "personnalview@personnalview"
+    "personalview@personalview"
 );
 
 // Setup page goes here

@@ -18,20 +18,20 @@
  */
 
 /**
- * 	\defgroup   personnalview     Module personnalview
+ * 	\defgroup   personalview     Module personalview
  *  \brief      Example of a module descriptor.
- *				Such a file must be copied into htdocs/personnalview/core/modules directory.
- *  \file       htdocs/personnalview/core/modules/modpersonnalview.class.php
- *  \ingroup    personnalview
- *  \brief      Description and activation file for module personnalview
+ *				Such a file must be copied into htdocs/personalview/core/modules directory.
+ *  \file       htdocs/personalview/core/modules/modpersonalview.class.php
+ *  \ingroup    personalview
+ *  \brief      Description and activation file for module personalview
  */
 include_once DOL_DOCUMENT_ROOT .'/core/modules/DolibarrModules.class.php';
 
 
 /**
- *  Description and activation class for module personnalview
+ *  Description and activation class for module personalview
  */
-class modpersonnalview extends DolibarrModules
+class modpersonalview extends DolibarrModules
 {
 	/**
 	 *   Constructor. Define names, constants, directories, boxes, permissions
@@ -48,7 +48,7 @@ class modpersonnalview extends DolibarrModules
 		// Use here a free id (See in Home -> System information -> Dolibarr for list of used modules id).
 		$this->numero = 104850; // 104000 to 104999 for ATM CONSULTING
 		// Key text used to identify module (for permissions, menus, etc...)
-		$this->rights_class = 'personnalview';
+		$this->rights_class = 'personalview';
 
 		// Family can be 'crm','financial','hr','projects','products','ecm','technic','other'
 		// It is used to group modules in module setup page
@@ -56,7 +56,7 @@ class modpersonnalview extends DolibarrModules
 		// Module label (no space allowed), used if translation string 'ModuleXXXName' not found (where XXX is value of numeric property 'numero' of module)
 		$this->name = preg_replace('/^mod/i','',get_class($this));
 		// Module description, used if translation string 'ModuleXXXDesc' not found (where XXX is value of numeric property 'numero' of module)
-		$this->description = "Description of module personnalview";
+		$this->description = "Description of module personalview";
 		// Possible values for version are: 'development', 'experimental', 'dolibarr' or version
 		$this->version = '1.0';
 		// Key used in llx_const table to save module status enabled/disabled (where MYMODULE is value of property name of module in uppercase)
@@ -66,12 +66,12 @@ class modpersonnalview extends DolibarrModules
 		// Name of image file used for this module.
 		// If file is in theme/yourtheme/img directory under name object_pictovalue.png, use this->picto='pictovalue'
 		// If file is in module/img directory under name object_pictovalue.png, use this->picto='pictovalue@module'
-		$this->picto='personnalview@personnalview';
+		$this->picto='personalview@personalview';
 
 		// Defined all module parts (triggers, login, substitutions, menus, css, etc...)
-		// for default path (eg: /personnalview/core/xxxxx) (0=disable, 1=enable)
-		// for specific path of parts (eg: /personnalview/core/modules/barcode)
-		// for specific css file (eg: /personnalview/css/personnalview.css.php)
+		// for default path (eg: /personalview/core/xxxxx) (0=disable, 1=enable)
+		// for specific path of parts (eg: /personalview/core/modules/barcode)
+		// for specific css file (eg: /personalview/css/personalview.css.php)
 		//$this->module_parts = array(
 		//                        	'triggers' => 0,                                 	// Set this to 1 if module has its own trigger directory (core/triggers)
 		//							'login' => 0,                                    	// Set this to 1 if module has its own login method directory (core/login)
@@ -81,24 +81,24 @@ class modpersonnalview extends DolibarrModules
 		//                        	'tpl' => 0,                                      	// Set this to 1 if module overwrite template dir (core/tpl)
 		//							'barcode' => 0,                                  	// Set this to 1 if module has its own barcode directory (core/modules/barcode)
 		//							'models' => 0,                                   	// Set this to 1 if module has its own models directory (core/modules/xxx)
-		//							'css' => array('/personnalview/css/personnalview.css.php'),	// Set this to relative path of css file if module has its own css file
-	 	//							'js' => array('/personnalview/js/personnalview.js'),          // Set this to relative path of js file if module must load a js on all pages
+		//							'css' => array('/personalview/css/personalview.css.php'),	// Set this to relative path of css file if module has its own css file
+	 	//							'js' => array('/personalview/js/personalview.js'),          // Set this to relative path of js file if module must load a js on all pages
 		//							'hooks' => array('hookcontext1','hookcontext2')  	// Set here all hooks context managed by module
 		//							'dir' => array('output' => 'othermodulename'),      // To force the default directories names
-		//							'workflow' => array('WORKFLOW_MODULE1_YOURACTIONTYPE_MODULE2'=>array('enabled'=>'! empty($conf->module1->enabled) && ! empty($conf->module2->enabled)', 'picto'=>'yourpicto@personnalview')) // Set here all workflow context managed by module
+		//							'workflow' => array('WORKFLOW_MODULE1_YOURACTIONTYPE_MODULE2'=>array('enabled'=>'! empty($conf->module1->enabled) && ! empty($conf->module2->enabled)', 'picto'=>'yourpicto@personalview')) // Set here all workflow context managed by module
 		//                        );
 		$this->module_parts = array(
 			'hooks'=>array( 'globalcard' )
 			,'js'=>array()
-			,'css'=>array('/personnalview/css/style.css')
+			,'css'=>array('/personalview/css/style.css')
 		);
 
 		// Data directories to create when module is enabled.
-		// Example: this->dirs = array("/personnalview/temp");
+		// Example: this->dirs = array("/personalview/temp");
 		$this->dirs = array();
 
-		// Config pages. Put here list of php page, stored into personnalview/admin directory, to use to setup module.
-		$this->config_page_url = array("personnalview_setup.php@personnalview");
+		// Config pages. Put here list of php page, stored into personalview/admin directory, to use to setup module.
+		$this->config_page_url = array("personalview_setup.php@personalview");
 
 		// Dependencies
 		$this->hidden = false;			// A condition to hide module
@@ -107,7 +107,7 @@ class modpersonnalview extends DolibarrModules
 		$this->conflictwith = array();	// List of modules id this module is in conflict with
 		$this->phpmin = array(5,0);					// Minimum version of PHP required by module
 		$this->need_dolibarr_version = array(3,0);	// Minimum version of Dolibarr required by module
-		$this->langfiles = array("personnalview@personnalview");
+		$this->langfiles = array("personalview@personalview");
 
 		// Constants
 		// List of particular constants to add when module is enabled (key, 'chaine', value, desc, visible, 'current' or 'allentities', deleteonunactive)
@@ -117,8 +117,8 @@ class modpersonnalview extends DolibarrModules
 		$this->const = array();
 
 		// Array to add new pages in new tabs
-		// Example: $this->tabs = array('objecttype:+tabname1:Title1:mylangfile@personnalview:$user->rights->personnalview->read:/personnalview/mynewtab1.php?id=__ID__',  	// To add a new tab identified by code tabname1
-        //                              'objecttype:+tabname2:Title2:mylangfile@personnalview:$user->rights->othermodule->read:/personnalview/mynewtab2.php?id=__ID__',  	// To add another new tab identified by code tabname2
+		// Example: $this->tabs = array('objecttype:+tabname1:Title1:mylangfile@personalview:$user->rights->personalview->read:/personalview/mynewtab1.php?id=__ID__',  	// To add a new tab identified by code tabname1
+        //                              'objecttype:+tabname2:Title2:mylangfile@personalview:$user->rights->othermodule->read:/personalview/mynewtab2.php?id=__ID__',  	// To add another new tab identified by code tabname2
         //                              'objecttype:-tabname:NU:conditiontoremove');                                                     						// To remove an existing tab identified by code tabname
 		// where objecttype can be
 		// 'categories_x'	  to add a tab in category view (replace 'x' by type of category (0=product, 1=supplier, 2=customer, 3=member)
@@ -143,16 +143,16 @@ class modpersonnalview extends DolibarrModules
         $this->tabs = array();
 
         // Dictionaries
-	    if (! isset($conf->personnalview->enabled))
+	    if (! isset($conf->personalview->enabled))
         {
-        	$conf->personnalview=new stdClass();
-        	$conf->personnalview->enabled=0;
+        	$conf->personalview=new stdClass();
+        	$conf->personalview->enabled=0;
         }
 		$this->dictionaries=array();
         /* Example:
-        if (! isset($conf->personnalview->enabled)) $conf->personnalview->enabled=0;	// This is to avoid warnings
+        if (! isset($conf->personalview->enabled)) $conf->personalview->enabled=0;	// This is to avoid warnings
         $this->dictionaries=array(
-            'langs'=>'mylangfile@personnalview',
+            'langs'=>'mylangfile@personalview',
             'tabname'=>array(MAIN_DB_PREFIX."table1",MAIN_DB_PREFIX."table2",MAIN_DB_PREFIX."table3"),		// List of tables we want to see into dictonnary editor
             'tablib'=>array("Table1","Table2","Table3"),													// Label of tables
             'tabsql'=>array('SELECT f.rowid as rowid, f.code, f.label, f.active FROM '.MAIN_DB_PREFIX.'table1 as f','SELECT f.rowid as rowid, f.code, f.label, f.active FROM '.MAIN_DB_PREFIX.'table2 as f','SELECT f.rowid as rowid, f.code, f.label, f.active FROM '.MAIN_DB_PREFIX.'table3 as f'),	// Request to select fields
@@ -161,7 +161,7 @@ class modpersonnalview extends DolibarrModules
             'tabfieldvalue'=>array("code,label","code,label","code,label"),																				// List of fields (list of fields to edit a record)
             'tabfieldinsert'=>array("code,label","code,label","code,label"),																			// List of fields (list of fields for insert)
             'tabrowid'=>array("rowid","rowid","rowid"),																									// Name of columns with primary key (try to always name it 'rowid')
-            'tabcond'=>array($conf->personnalview->enabled,$conf->personnalview->enabled,$conf->personnalview->enabled)												// Condition to show each dictionary
+            'tabcond'=>array($conf->personalview->enabled,$conf->personalview->enabled,$conf->personalview->enabled)												// Condition to show each dictionary
         );
         */
 
@@ -194,14 +194,14 @@ class modpersonnalview extends DolibarrModules
 		// Example to declare a new Top Menu entry and its Left menu entry:
 		// $this->menu[$r]=array(	'fk_menu'=>0,			                // Put 0 if this is a top menu
 		//							'type'=>'top',			                // This is a Top menu entry
-		//							'titre'=>'personnalview top menu',
-		//							'mainmenu'=>'personnalview',
-		//							'leftmenu'=>'personnalview',
-		//							'url'=>'/personnalview/pagetop.php',
-		//							'langs'=>'mylangfile@personnalview',	        // Lang file to use (without .lang) by module. File must be in langs/code_CODE/ directory.
+		//							'titre'=>'personalview top menu',
+		//							'mainmenu'=>'personalview',
+		//							'leftmenu'=>'personalview',
+		//							'url'=>'/personalview/pagetop.php',
+		//							'langs'=>'mylangfile@personalview',	        // Lang file to use (without .lang) by module. File must be in langs/code_CODE/ directory.
 		//							'position'=>100,
-		//							'enabled'=>'$conf->personnalview->enabled',	// Define condition to show or hide menu entry. Use '$conf->personnalview->enabled' if entry must be visible if module is enabled.
-		//							'perms'=>'1',			                // Use 'perms'=>'$user->rights->personnalview->level1->level2' if you want your menu with a permission rules
+		//							'enabled'=>'$conf->personalview->enabled',	// Define condition to show or hide menu entry. Use '$conf->personalview->enabled' if entry must be visible if module is enabled.
+		//							'perms'=>'1',			                // Use 'perms'=>'$user->rights->personalview->level1->level2' if you want your menu with a permission rules
 		//							'target'=>'',
 		//							'user'=>2);				                // 0=Menu for internal users, 1=external users, 2=both
 		// $r++;
@@ -209,14 +209,14 @@ class modpersonnalview extends DolibarrModules
 		// Example to declare a Left Menu entry into an existing Top menu entry:
 		// $this->menu[$r]=array(	'fk_menu'=>'fk_mainmenu=xxx',		    // Use 'fk_mainmenu=xxx' or 'fk_mainmenu=xxx,fk_leftmenu=yyy' where xxx is mainmenucode and yyy is a leftmenucode
 		//							'type'=>'left',			                // This is a Left menu entry
-		//							'titre'=>'personnalview left menu',
+		//							'titre'=>'personalview left menu',
 		//							'mainmenu'=>'xxx',
-		//							'leftmenu'=>'personnalview',
-		//							'url'=>'/personnalview/pagelevel2.php',
-		//							'langs'=>'mylangfile@personnalview',	        // Lang file to use (without .lang) by module. File must be in langs/code_CODE/ directory.
+		//							'leftmenu'=>'personalview',
+		//							'url'=>'/personalview/pagelevel2.php',
+		//							'langs'=>'mylangfile@personalview',	        // Lang file to use (without .lang) by module. File must be in langs/code_CODE/ directory.
 		//							'position'=>100,
-		//							'enabled'=>'$conf->personnalview->enabled',  // Define condition to show or hide menu entry. Use '$conf->personnalview->enabled' if entry must be visible if module is enabled. Use '$leftmenu==\'system\'' to show if leftmenu system is selected.
-		//							'perms'=>'1',			                // Use 'perms'=>'$user->rights->personnalview->level1->level2' if you want your menu with a permission rules
+		//							'enabled'=>'$conf->personalview->enabled',  // Define condition to show or hide menu entry. Use '$conf->personalview->enabled' if entry must be visible if module is enabled. Use '$leftmenu==\'system\'' to show if leftmenu system is selected.
+		//							'perms'=>'1',			                // Use 'perms'=>'$user->rights->personalview->level1->level2' if you want your menu with a permission rules
 		//							'target'=>'',
 		//							'user'=>2);				                // 0=Menu for internal users, 1=external users, 2=both
 		// $r++;
@@ -254,10 +254,10 @@ class modpersonnalview extends DolibarrModules
 		
 		define('INC_FROM_DOLIBARR',true);
 
-		dol_include_once('/personnalview/config.php');
-		dol_include_once('/personnalview/script/create-maj-base.php');
+		dol_include_once('/personalview/config.php');
+		dol_include_once('/personalview/script/create-maj-base.php');
 
-		$result=$this->_load_tables('/personnalview/sql/');
+		$result=$this->_load_tables('/personalview/sql/');
 
 		return $this->_init($sql, $options);
 	}

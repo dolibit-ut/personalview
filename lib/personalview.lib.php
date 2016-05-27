@@ -17,26 +17,26 @@
  */
 
 /**
- *	\file		lib/personnalview.lib.php
- *	\ingroup	personnalview
+ *	\file		lib/personalview.lib.php
+ *	\ingroup	personalview
  *	\brief		This file is an example module library
  *				Put some comments here
  */
 
-function personnalviewAdminPrepareHead()
+function personalviewAdminPrepareHead()
 {
     global $langs, $conf;
 
-    $langs->load("personnalview@personnalview");
+    $langs->load("personalview@personalview");
 
     $h = 0;
     $head = array();
 
-    $head[$h][0] = dol_buildpath("/personnalview/admin/personnalview_setup.php", 1);
+    $head[$h][0] = dol_buildpath("/personalview/admin/personalview_setup.php", 1);
     $head[$h][1] = $langs->trans("Parameters");
     $head[$h][2] = 'settings';
     $h++;
-    $head[$h][0] = dol_buildpath("/personnalview/admin/personnalview_about.php", 1);
+    $head[$h][0] = dol_buildpath("/personalview/admin/personalview_about.php", 1);
     $head[$h][1] = $langs->trans("About");
     $head[$h][2] = 'about';
     $h++;
@@ -44,12 +44,12 @@ function personnalviewAdminPrepareHead()
     // Show more tabs from modules
     // Entries must be declared in modules descriptor with line
     //$this->tabs = array(
-    //	'entity:+tabname:Title:@personnalview:/personnalview/mypage.php?id=__ID__'
+    //	'entity:+tabname:Title:@personalview:/personalview/mypage.php?id=__ID__'
     //); // to add new tab
     //$this->tabs = array(
-    //	'entity:-tabname:Title:@personnalview:/personnalview/mypage.php?id=__ID__'
+    //	'entity:-tabname:Title:@personalview:/personalview/mypage.php?id=__ID__'
     //); // to remove a tab
-    complete_head_from_modules($conf, $langs, $object, $head, $h, 'personnalview');
+    complete_head_from_modules($conf, $langs, $object, $head, $h, 'personalview');
 
     return $head;
 }

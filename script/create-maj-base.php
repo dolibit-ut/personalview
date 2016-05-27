@@ -11,10 +11,10 @@ if(!defined('INC_FROM_DOLIBARR')) {
 }
 
 
-dol_include_once('/personnalview/class/ps.class.php');
+dol_include_once('/personalview/class/ps.class.php');
 
 $PDOdb=new TPDOdb;
 
-$o=new TPersonnalView($db);
+$o=new TPersonalView($db);
 $o->init_db_by_vars($PDOdb);
 
