@@ -19,7 +19,7 @@ function _put($put) {
 			$ps->element = GETPOST('element');
 			$ps->action = GETPOST('action');
 			$ps->TField = GETPOST('TField','array');
-			
+			pre($ps->TField,1);
 			echo $ps->save($PDOdb);
 			
 			break;

@@ -96,8 +96,9 @@ class Actionspersonalview
 						?>
 						$('#personalviewbuttons [rel=running],#personalviewbuttons [rel=edit]').hide();
 					
-						$('table').not('table table').each(function(it, table) {
+						$('div.fiche:first table.border').not('table table,.ui-dialog,.confirmquestions').each(function(it, table) {
 								$table = $(table);
+							console.log($table, $table.parent(),it);
 								$table.attr('pview-table', it);
 								$table.addClass('PSTable');
 						
@@ -114,7 +115,7 @@ class Actionspersonalview
 								
 							if(!empty($row['bold'])) echo '$("table[pview-table='.$iTable.'] tr[pview-row='.$iRow.']").addClass("PSBolder");';
 							if(!empty($row['hide'])) echo '$("table[pview-table='.$iTable.'] tr[pview-row='.$iRow.']").addClass("PSHidden");';
-							if(!empty($row['color'])) {echo '$("table[pview-table='.$iTable.'] tr[pview-row='.$iRow.']").addClass("PSColor").attr("ps-color","#'.$row['color'].'").css("background-color","#'.$row['color'].'");';
+							if(!empty($row['color'])) {echo '$("table[pview-table='.$iTable.'] tr[pview-row='.$iRow.']").addClass("PSColor").attr("ps-color","'.$row['color'].'").css("background-color","#'.$row['color'].'");';
 							
 							}
 						}
@@ -170,7 +171,7 @@ class Actionspersonalview
 							
 							$(table).find('tr[pview-row]').each(function(i,item) {
 								$item = $(item);
-								
+								//console.log($item,it,i);
 								var row = { iTable : it, iRow : i, color:'',hide:0,bold:0  };
 								
 								if($item.hasClass('PSBolder')) row.bold = 1;
@@ -200,7 +201,7 @@ class Actionspersonalview
 						$('#personalviewbuttons [rel=exist],#personalviewbuttons [rel=edit]').hide();
 						$('#personalviewbuttons [rel=running]').show();
 						
-						$('table').not('table table').each(function(it, table) {
+						$('div.fiche:first table.border').not('table table').each(function(it, table) {
 						var $table = $(table);
 						
 						$table.before('<div class="PSCanEdit"><?php echo $langs->trans('YouCanEditThisTable').' <a href="javascript:personalview.save();">'.img_picto($langs->trans('SaveView'),'tick').'</a>'; ?></div>');
@@ -239,7 +240,7 @@ class Actionspersonalview
 									else{
 										$tr.css('background-color','#'+ colors.HEX);
 										$tr.addClass("PSColor");
-										$tr.attr('ps-color',colors.HEX)
+										$tr.attr('ps-color',colors.HEX);console.log(colors.HEX);
 									}
 									
 									
