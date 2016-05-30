@@ -158,6 +158,13 @@ class Actionspersonalview
 						}
 						
 					}
+					,remove :function() {
+						$("tr.PSNotReallyHide").removeClass("PSNotReallyHide");
+						$("tr.PSBolder").removeClass("PSBolder");
+						$("tr.PSColor").removeClass("PSColor").css({"background-color":"none"}).removeAttr("ps-color");
+					
+						personalview.save();
+					}
 					,save : function() {
 						$('table[pview-table] tr').unbind('mouseenter').unbind('mouseleave');
 						$('#personalviewbuttons [rel=running],#personalviewbuttons [rel=edit]').hide();
@@ -204,7 +211,11 @@ class Actionspersonalview
 						$('div.fiche:first table.border').not('table table').each(function(it, table) {
 						var $table = $(table);
 						
-						$table.before('<div class="PSCanEdit"><?php echo $langs->trans('YouCanEditThisTable').' <a href="javascript:personalview.save();">'.img_picto($langs->trans('SaveView'),'tick').'</a>'; ?></div>');
+						$table.before('<div class="PSCanEdit"><?php echo '<div class="buttons">'
+								.' <a href="javascript:personalview.save();">'.img_picto($langs->trans('SaveView'),'ok@personalview').'</a>' 
+								.' <a href="javascript:personalview.remove();">'.img_picto($langs->trans('RemoveView'),'ko@personalview').'</a>'
+								.'</div>'.$langs->trans('YouCanEditThisTable');
+								?></div>');
 						
 						if($table.hasClass('nobordernopadding')) {
 							$('table').css({
