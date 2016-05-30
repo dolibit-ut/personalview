@@ -7,6 +7,7 @@ class TPersonalView extends TObjetStd {
 		$this->set_table(MAIN_DB_PREFIX . 'personal_view');
 		$this->add_champs('TField',array('type'=>'array'));
 		$this->add_champs('element,action',array('type'=>'string','length'=>30, 'index'=>true));
+		$this->add_champs('fk_group,fk_user',array('type'=>'integer', 'index'=>true));
 		
 		$this->_init_vars();
 		$this->start();
