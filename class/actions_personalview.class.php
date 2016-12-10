@@ -79,7 +79,7 @@ class Actionspersonalview
 			?>
 			<script src="<?php echo dol_buildpath('/personalview/lib/colorPicker/jqColorPicker.min.js',1); ?>" type="text/javascript"></script>
 			<script type="text/javascript">
-				
+				$('div.fiche').hide();
 				$(document).ready(function() {
 					$('#personalviewbuttons').prependTo('div.login_block div.login_block_other').show();
 						
@@ -130,7 +130,7 @@ class Actionspersonalview
 					}
 											
 					?>
-					
+					$('div.fiche').show();
 				});
 				
 				var personalview = {
