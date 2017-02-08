@@ -15,3 +15,7 @@ PickColor=Choisir une couleur de fond
 SaveView=Sauvegarder la vue
 YouCanEditThisTable=Vous pouvez éditer cette table
 RemoveView=Supprimer cette vue
+
+CreateGeneralOrGroupView=Créer une vue globale ou de groupe
+CreateMyPersonalView=Créer ma vue personnelle
+UsePersonalView=Utiliser les vues personnelles

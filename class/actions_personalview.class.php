@@ -115,10 +115,14 @@ class Actionspersonalview
 								
 							if(!empty($row['bold'])) echo '$("table[pview-table='.$iTable.'] tr[pview-row='.$iRow.']").addClass("PSBolder");';
 							if(!empty($row['hide'])) echo '$("table[pview-table='.$iTable.'] tr[pview-row='.$iRow.']").addClass("PSHidden");';
-							if(!empty($row['color'])) {echo '$("table[pview-table='.$iTable.'] tr[pview-row='.$iRow.']").addClass("PSColor").attr("ps-color","'.$row['color'].'").css("background-color","#'.$row['color'].'");';
-							
+							if(!empty($row['color'])) {
+								echo '$("table[pview-table='.$iTable.'] tr[pview-row='.$iRow.']").addClass("PSColor").attr("ps-color","'.$row['color'].'").css("background-color","#'.$row['color'].'");';								
 							}
+							if(!empty($row['tooltip'])) echo '$("table[pview-table='.$iTable.'] tr[pview-row='.$iRow.']").addClass("PSTooltip").attr("ps-tooltip","'.$row['tooltip'].'");';
+								
 						}
+						
+						echo 'personalview.drawTooltip();';
 						
 					}
 					else{
@@ -158,6 +162,43 @@ class Actionspersonalview
 						}
 						
 					}
+					,drawTooltip : function() {
+						
+						$('tr.PSTooltip').each(function(i, item) {
+							var $item = $(item);
+							var tip = $item.attr('ps-tooltip');
+							$item.prop('title',tip);
+						    
+							$item.tooltip({
+							       show: null,
+							       hide:null,
+							       track: true
+							});
+
+						});
+					}
+					
+					,tooltip :  function(iTable, iRow) {
+						var $tr = $('table[pview-table='+iTable+'] tr[pview-row='+iRow+']')
+
+						var texte = $tr.attr('ps-tooltip') ? $tr.attr('ps-tooltip') : '';
+
+						var $div = $('<div><textarea style="width:100%; height:100%;">'+texte+'</textarea></div');
+						
+						$div.dialog({
+							title:"<?php echo $langs->trans('Tooltip'); ?>"
+							,'buttons' : {
+								'ok':function() {
+
+									$tr.attr('ps-tooltip', $div.find('textarea').val()).addClass('PSTooltip');
+									$div.dialog('close');		
+								}
+							}
+							
+						});
+											
+					}
+					
 					,remove :function() {
 						$("tr.PSNotReallyHide").removeClass("PSNotReallyHide");
 						$("tr.PSBolder").removeClass("PSBolder");
@@ -179,11 +220,12 @@ class Actionspersonalview
 							$(table).find('tr[pview-row]').each(function(i,item) {
 								$item = $(item);
 								//console.log($item,it,i);
-								var row = { iTable : it, iRow : i, color:'',hide:0,bold:0  };
+								var row = { iTable : it, iRow : i, color:'',hide:0,bold:0, tooltip:''  };
 								
 								if($item.hasClass('PSBolder')) row.bold = 1;
 								if($item.hasClass('PSHidden')) row.hide = 1;
 								if($item.hasClass('PSColor')) row.color = $item.attr('ps-color');
+								if($item.hasClass('PSTooltip')) row.tooltip= $item.attr('ps-tooltip');
 								
 								TField.push(row);		
 							});
@@ -199,6 +241,8 @@ class Actionspersonalview
 								,TField:TField
 							}
 							,method:"post"
+						}).done(function() {
+							personalview.drawTooltip();
 						});
 						
 					}
@@ -233,6 +277,7 @@ class Actionspersonalview
 							var $actions = $('<div class="PSActions" rel="personnal-view-data"></div>');
 							$actions.append('<a rel="hide" href="javascript:personalview.hide('+it+','+i+')"><?php echo img_picto($langs->trans('HideOrNot'), 'personalview@personalview'); ?></a>');
 							$actions.append('<a href="javascript:personalview.highLight('+it+','+i+')"><?php echo img_picto($langs->trans('HighLight'), 'bold@personalview'); ?></a>');
+							$actions.append('<a href="javascript:personalview.tooltip('+it+','+i+')"><?php echo img_picto($langs->trans('Tooltip'), 'tooltip@personalview'); ?></a>');
 							
 							//$actions.append('<input type="text" pview-table="'+it+'" pview-row="'+i+'" id="color_'+it+'_'+i+'" value="" class="color" size="2" />');
 							$actions.append('<a href="javascript:;" pview-table="'+it+'" pview-row="'+i+'" id="color_'+it+'_'+i+'"><?php echo img_picto($langs->trans('PickColor'), 'color@personalview'); ?></a>');
