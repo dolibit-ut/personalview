@@ -35,3 +35,9 @@ div.PSActions {
 .PSCanEdit div.buttons {
 	float:right;
 }
+
+tr.PSTooltip>td:first-child {
+	background-image:url("../img/tooltip-small.png");
+	background-repeat:no-repeat;
+	background-position: right 5px center;
+}
