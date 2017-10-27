@@ -75,8 +75,6 @@ class Actionspersonalview
 			echo '</div>';
 
 			?>
-			<link rel="stylesheet" href="<?php echo dol_buildpath('/personalview/lib/jquery-palette-color-picker/src/palette-color-picker.css',1); ?>">
-			<script src="<?php echo dol_buildpath('/personalview/lib/jquery-palette-color-picker/src/palette-color-picker.min.js',1); ?>" type="text/javascript"></script>
 			<script type="text/javascript">
 				$('div.fiche').hide();
 				$(document).ready(function() {
