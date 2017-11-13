@@ -175,6 +175,7 @@ class Actionspersonalview
 
 							if(colors=='#ffffff' ) {
 								$tr.removeClass('PSColor');
+								$tr.css('background-color','');
 							}
 							else{
 								$tr.css('background-color',colors);
