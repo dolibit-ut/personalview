@@ -76,7 +76,7 @@ class Actionspersonalview
 
 			?>
 			<script type="text/javascript">
-				$('div.fiche').hide();
+				$('div.fiche').css('visibility','hidden');
 				$(document).ready(function() {
 					$('#personalviewbuttons').prependTo('div.login_block div.login_block_other').show();
 
@@ -130,7 +130,7 @@ class Actionspersonalview
 					}
 
 					?>
-					$('div.fiche').show();
+					$('div.fiche').css('visibility','visible');
 				});
 
 				var personalview = {
