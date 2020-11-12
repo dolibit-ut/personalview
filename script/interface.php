@@ -14,10 +14,10 @@ function _put($put) {
 	switch ($put) {
 		case 'view':
 			$ps =new TPersonalView;
-			$ps->loadByElementAction($PDOdb, GETPOST('element'),  GETPOST('action'));
+			$ps->loadByElementAction($PDOdb, GETPOST('element','alpha'),  GETPOST('action','alpha'));
 			
-			$ps->element = GETPOST('element');
-			$ps->action = GETPOST('action');
+			$ps->element = GETPOST('element','alpha');
+			$ps->action = GETPOST('action','alpha');
 			$ps->TField = GETPOST('TField','array');
 			pre($ps->TField,1);
 			echo $ps->save($PDOdb);
