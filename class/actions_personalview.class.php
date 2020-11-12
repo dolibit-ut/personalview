@@ -64,15 +64,18 @@ class Actionspersonalview
 
 		if (in_array('globalcard', explode(':', $parameters['context'])))
 		{
-			global $langs;
+			global $langs, $user;
 
 			$langs->load('personalview@personalview');
 
-			echo '<div class="inline-block" id="personalviewbuttons" style="display:none;">';
-			echo '<a rel="edit" href="javascript:personalview.edit();">'.img_picto($langs->trans('EditView'), 'personalview@personalview',' style="width:16px;" ').'</a>';
-			echo '<a rel="running" href="javascript:personalview.save();">'.img_picto($langs->trans('EditViewRunning'), 'personalview-edit@personalview',' style="width:16px;" ').'</a>';
-			echo '<a rel="exist" href="javascript:personalview.edit();">'.img_picto($langs->trans('EditViewSaved'), 'personalview-saved@personalview',' style="width:16px;" ').'</a>';
-			echo '</div>';
+			// Display personal view buttons only if user has permission
+			if(!empty($user->rights->personalview->admin->create)) {
+				echo '<div class="inline-block" id="personalviewbuttons" style="display:none;">';
+				echo '<a rel="edit" href="javascript:personalview.edit();">' . img_picto($langs->trans('EditView'), 'personalview@personalview', ' style="width:16px;" ') . '</a>';
+				echo '<a rel="running" href="javascript:personalview.save();">' . img_picto($langs->trans('EditViewRunning'), 'personalview-edit@personalview', ' style="width:16px;" ') . '</a>';
+				echo '<a rel="exist" href="javascript:personalview.edit();">' . img_picto($langs->trans('EditViewSaved'), 'personalview-saved@personalview', ' style="width:16px;" ') . '</a>';
+				echo '</div>';
+			}
 
 			?>
 			<script type="text/javascript">

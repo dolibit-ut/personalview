@@ -58,7 +58,7 @@ class modpersonalview extends DolibarrModules
 		// Module description, used if translation string 'ModuleXXXDesc' not found (where XXX is value of numeric property 'numero' of module)
 		$this->description = "Description of module personalview";
 		// Possible values for version are: 'development', 'experimental', 'dolibarr' or version
-		$this->version = '1.1.1';
+		$this->version = '1.1.2';
 		// Key used in llx_const table to save module status enabled/disabled (where MYMODULE is value of property name of module in uppercase)
 		$this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
 		// Where to store the module in setup page (0=common,1=interface,2=others,3=very specific)
@@ -178,12 +178,13 @@ class modpersonalview extends DolibarrModules
 		// Add here list of permission defined by an id, a label, a boolean and two constant strings.
 		// Example:
 		$this->rights[$r][0] = $this->numero . $r;	// Permission id (must not be already used)
-		$this->rights[$r][1] = 'CreateGeneralOrGroupView';	// Permission label
+		$this->rights[$r][1] = 'CreateGeneralView';	// Permission label
 		$this->rights[$r][3] = 0; 					// Permission by default for new user (0/1)
 		$this->rights[$r][4] = 'admin';				// In php code, permission will be checked by test if ($user->rights->permkey->level1->level2)
 		$this->rights[$r][5] = 'create';				// In php code, permission will be checked by test if ($user->rights->permkey->level1->level2)
 		$r++;
 
+		/*
 		$this->rights[$r][0] = $this->numero . $r;	// Permission id (must not be already used)
 		$this->rights[$r][1] = 'CreateMyPersonalView';	// Permission label
 		$this->rights[$r][3] = 0; 					// Permission by default for new user (0/1)
@@ -197,7 +198,7 @@ class modpersonalview extends DolibarrModules
 		$this->rights[$r][4] = 'my';				// In php code, permission will be checked by test if ($user->rights->permkey->level1->level2)
 		$this->rights[$r][5] = 'view';				// In php code, permission will be checked by test if ($user->rights->permkey->level1->level2)
 		$r++;
-
+		*/
 
 		// Main menu entries
 		$this->menu = array();			// List of menus to add
@@ -265,7 +266,7 @@ class modpersonalview extends DolibarrModules
 	function init($options='')
 	{
 		$sql = array();
-		
+
 		define('INC_FROM_DOLIBARR',true);
 
 		dol_include_once('/personalview/config.php');
