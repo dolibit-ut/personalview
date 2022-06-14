@@ -77,6 +77,8 @@ class Actionspersonalview
 				echo '</div>';
 			}
 
+			$newToken = function_exists('newToken') ? newToken() : $_SESSION['newtoken'];
+
 			?>
 			<script type="text/javascript">
 				$('div.fiche').css('visibility','hidden');
@@ -264,7 +266,7 @@ class Actionspersonalview
 						});
 
 						$.ajax({
-							url:"<?php echo dol_buildpath("/personalview/script/interface.php",1) ?>"
+							url:"<?php echo dol_buildpath("/personalview/script/interface.php?token=".$newToken,1) ?>"
 							,data: {
 								put:'view'
 								,element:"<?php echo $object->element ?>"
