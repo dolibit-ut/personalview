@@ -98,7 +98,7 @@ class modpersonalview extends DolibarrModules
 		$this->dirs = array();
 
 		// Config pages. Put here list of php page, stored into personalview/admin directory, to use to setup module.
-		$this->config_page_url = array("personalview_setup.php@personalview");
+		$this->config_page_url = array("personalview_about.php@personalview");
 
 		// Dependencies
 		$this->hidden = false;			// A condition to hide module
