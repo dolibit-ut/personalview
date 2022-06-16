@@ -32,10 +32,10 @@ function personalviewAdminPrepareHead()
     $h = 0;
     $head = array();
 
-    $head[$h][0] = dol_buildpath("/personalview/admin/personalview_setup.php", 1);
+    /*$head[$h][0] = dol_buildpath("/personalview/admin/personalview_setup.php", 1);
     $head[$h][1] = $langs->trans("Parameters");
     $head[$h][2] = 'settings';
-    $h++;
+    $h++;*/
     $head[$h][0] = dol_buildpath("/personalview/admin/personalview_about.php", 1);
     $head[$h][1] = $langs->trans("About");
     $head[$h][2] = 'about';

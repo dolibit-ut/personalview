@@ -52,13 +52,13 @@ class modpersonalview extends DolibarrModules
 
 		// Family can be 'crm','financial','hr','projects','products','ecm','technic','other'
 		// It is used to group modules in module setup page
-		$this->family = "other";
+		$this->family = "ATM Consulting";
 		// Module label (no space allowed), used if translation string 'ModuleXXXName' not found (where XXX is value of numeric property 'numero' of module)
 		$this->name = preg_replace('/^mod/i','',get_class($this));
 		// Module description, used if translation string 'ModuleXXXDesc' not found (where XXX is value of numeric property 'numero' of module)
 		$this->description = "Description of module personalview";
 		// Possible values for version are: 'development', 'experimental', 'dolibarr' or version
-		$this->version = '1.1.3';
+		$this->version = '1.1.4';
 		// Key used in llx_const table to save module status enabled/disabled (where MYMODULE is value of property name of module in uppercase)
 		$this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
 		// Where to store the module in setup page (0=common,1=interface,2=others,3=very specific)
@@ -98,7 +98,7 @@ class modpersonalview extends DolibarrModules
 		$this->dirs = array();
 
 		// Config pages. Put here list of php page, stored into personalview/admin directory, to use to setup module.
-		$this->config_page_url = array("personalview_setup.php@personalview");
+		$this->config_page_url = array("personalview_about.php@personalview");
 
 		// Dependencies
 		$this->hidden = false;			// A condition to hide module
