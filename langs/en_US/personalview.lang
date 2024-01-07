@@ -6,17 +6,17 @@ ATMAbout = This module has been developed by <a href="http://www.atm-consulting.
 personalviewSetup = personalview module setup
 personalviewAbout = About personalview
 
-EditView=Edit the view
-EditViewRunning=Applying modifications...
-EditViewSaved=Customized view here
-HideOrNot=Hide or show
-HighLight=Highlight
-PickColor=Choose background color
-SaveView=Save view
-YouCanEditThisTable=You can edit this table
-RemoveView=Delete view
+EditView = Edit the view
+EditViewRunning = Applying modifications...
+EditViewSaved = Customized view here
+HideOrNot = Hide or show
+HighLight = Highlight
+PickColor = Choose background color
+SaveView = Save view
+YouCanEditThisTable = You can edit this table
+RemoveView = Delete view
 
-CreateGeneralView=Create a global view
-CreateGeneralOrGroupView=Create global or group view
-CreateMyPersonalView=Create my personnal view
-UsePersonalView=Use personal views
+CreateGeneralView = Create a global view
+CreateGeneralOrGroupView = Create global or group view
+CreateMyPersonalView = Create my personnal view
+UsePersonalView = Use personal views
